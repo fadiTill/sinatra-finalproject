@@ -8,7 +8,20 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    erb :welcome
+    erb :new_welcome
   end
 
+  # post "/" do 
+  #   @guest = Guest.new(name:"name 1")
+  #   if @guest.save
+  #     erb: new_welcome
+    #else
+      #do something upon failure 
+
+ 
+  # get '/images/home-realestate-106399.jpg' do
+  #   "/images/home-realestate-106399.jpg"
+  # end
 end
+
+
