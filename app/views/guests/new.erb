@@ -1,0 +1,72 @@
+
+# create_table "guests", force: :cascade do |t|
+#     t.string   "name"
+#     t.integer  "phone_number"
+#     t.string   "adresse"
+#     t.string   "email"
+#     t.string   "time_line"
+#     t.text     "note"
+#     t.datetime "created_at"
+#     t.datetime "updated_at"
+#   end
+
+# end
+
+
+<h1> create a  guest </h1>
+
+<form "action/guest" method = "POST">
+<ul>
+
+ <li>
+   <label for="name">Name:</label>
+   <input type="string" id="name" name="name" />
+ </li>
+
+ 
+
+ <li>
+   <label for="phone_number">Phone number:</label>
+   <input type="integer" id="phone number" name="phone_number" />
+ </li>
+
+
+ <li>
+ <label for="adresse">Adresse:</label>
+   <input type="text" id="phone number" name="adresse" />
+ </li>
+
+
+
+ <li>
+   <label for="email">E-mail:</label>
+   <input type="string" id="mail" name="user_email" />
+ </li>
+
+
+ <li>
+ <label for="note">Note:</label>
+   <input type="text" id="mail" name="note" />
+ </li>
+
+
+ <li>
+
+ <label for="time_line-select">Choose a timeline:</label>
+
+ <select name="time_line" id="time_line-select">
+     <option value="">--Please choose an option--</option>
+     <option value="now">Now</option>
+     <option value="3 months">3 Months</option>
+     <option value="6 months"> 6 Months</option>
+     <option value="1 year">1 Year</option>
+     <option value="just browsing">Just browsing</option>
+   
+ </select>
+ </li>
+
+
+ <li>
+ <li class="button">
+ <button type="submit">Sumbit</button>
+</li>
