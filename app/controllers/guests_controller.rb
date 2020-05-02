@@ -1,15 +1,32 @@
+
+
 class GuestsController < ApplicationController
 
     
     get "/guests/index" do
-        erb :"guests/index"
+      erb :"guests/index"
 end
 
 get "/guests/new" do
     erb :"guests/new"
-    
-    
  end
+
+ post "/guests" do
+    @guest = Guest.new(params)
+    if @guest.save
+        erb :"guests/show"
+
+    else   
+        erb :"guests/new"
+   end
+end
+
+
+ get "/guests/:id" do
+    @guest = Guest.find(params[:id])
+    erb :"guests/show"
+ end
+
 
 #  post"guests/" 
 # end
@@ -35,4 +52,4 @@ get "/guests/new" do
 # delete "/guests/:id/delete"
 # end
 
- end
+end

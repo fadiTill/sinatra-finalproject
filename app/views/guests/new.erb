@@ -1,64 +1,52 @@
 
-# create_table "guests", force: :cascade do |t|
-#     t.string   "name"
-#     t.integer  "phone_number"
-#     t.string   "adresse"
-#     t.string   "email"
-#     t.string   "time_line"
-#     t.text     "note"
-#     t.datetime "created_at"
-#     t.datetime "updated_at"
-#   end
-
-# end
 
 
 <h1> create a  guest </h1>
 
-<form action"/guest" method = "POST">
+<form action"/guests" method = "POST">
 <ul>
 
  <li>
    <label for="name">Name:</label>
-   <input type="string" id="name" name="name" />
+   <input type="string"  name="name" placeholder=" enter name" />
  </li>
 
  
 
  <li>
    <label for="phone_number">Phone number:</label>
-   <input type="integer" id="phone number" name="phone_number" />
+   <input type="integer"  name="phone_number" placeholder="enter phone_number"/>
  </li>
 
 
  <li>
  <label for="adresse">Adresse:</label>
-   <input type="text" id="phone number" name="adresse" />
+   <input type="text"  name="adresse" placeholder="enter adresse"/>
  </li>
 
 
 
  <li>
    <label for="email">E-mail:</label>
-   <input type="string" id="mail" name="user_email" />
+   <input type="string"  name="guest[][user_email]"placeholder="enter email" />
  </li>
 
 
  <li>
  <label for="note">Note:</label>
-   <input type="text" id="mail" name="note" />
+   <input type="text"  name="guest[][note]"placeholder="enter note" />
  </li>
 
 
  <li>
    <label for="creates_at">Date created:</label>
-   <input type="date" id="creates_at" name="Date created" />
+   <input type="date" name="guest[][creates_at]"/>
  </li>
 
 
  <li>
    <label for="update_at">Date updated:</label>
-   <input type="date" id="update_at" name="Date updated" />
+   <input type="date" name= "guest[][update_at]" />
  </li>
 
 
@@ -66,7 +54,7 @@
 
  <label for="time_line-select">Choose a timeline:</label>
 
- <select name="time_line" id="time_line-select">
+ <select name="guest[][time_line]" placeholder=" select time_line">
      <option value="">--Please choose an option--</option>
      <option value="now">Now</option>
      <option value="3 months">3 Months</option>
