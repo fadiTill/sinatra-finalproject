@@ -4,7 +4,7 @@ class GuestsController < ApplicationController
 
     
     get "/guests/index" do
-      erb :"guests/index"
+    erb :"guests/index"
 end
 
 get "/guests/new" do

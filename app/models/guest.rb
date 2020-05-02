@@ -1,11 +1,3 @@
-# t.string   "name"
-#     t.integer  "phone_number"
-#     t.string   "adresse"
-#     t.string   "email"
-#     t.string   "time_line"
-#     t.text     "note"
-#     t.datetime "created_at"
-#     t.datetime "updated_at"
 
 class Guest < ActiveRecord::Base
 
