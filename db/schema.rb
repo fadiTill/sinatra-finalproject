@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20200501205951) do
   create_table "guests", force: :cascade do |t|
     t.string   "name"
     t.integer  "phone_number"
-    t.string   "adresse"
+    t.string   "adress"
     t.string   "email"
     t.string   "time_line"
     t.text     "note"

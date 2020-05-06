@@ -3,58 +3,58 @@
 
 <h1> create a  guest </h1>
 
-<form action"/guests" method = "POST">
+<form action="/guests" method="POST">
 <ul>
 
  <li>
-   <label for="name">Name:</label>
-   <input type="string"  name="guest[][name]" placeholder=" enter name" />
+   <label>Name:</label>
+   <input type="string"  name="name" placeholder=" enter name" />
  </li>
 
  
 
  <li>
-   <label for="phone_number">Phone number:</label>
-   <input type="integer"  name="guest[][phone_munber]" placeholder="enter phone_number"/>
+   <label>Phone number:</label>
+   <input type="integer"  name="phone_number" placeholder="enter phone number"/>
  </li>
 
 
  <li>
- <label for="adresse">Adresse:</label>
-   <input type="text"  name="guest[][adresse]" placeholder="enter adresse"/>
+ <label>Adress:</label>
+   <input type="string"  name="adress" placeholder="enter adresse"/>
  </li>
 
 
 
  <li>
-   <label for="email">E-mail:</label>
-   <input type="string"  name="guest[][user_email]"placeholder="enter email" />
+   <label>E-mail:</label>
+   <input type="string"  name="email"placeholder="enter email" />
  </li>
 
 
  <li>
- <label for="note">Note:</label>
-   <input type="text"  name="guest[][note]"placeholder="enter note" />
+ <label>Note:</label>
+   <input type="text"  name="note"placeholder="enter note" />
  </li>
 
 
  <li>
-   <label for="creates_at">Date created:</label>
-   <input type="date" name="guest[][creates_at]"/>
+   <label>Date created:</label>
+   <input type="date" name="created_at"/>
  </li>
 
 
  <li>
-   <label for="update_at">Date updated:</label>
-   <input type="date" name= "guest[][update_at]" />
+   <label>Date updated:</label>
+   <input type="date" name= "updated_at" />
  </li>
 
 
  <li>
 
- <label for="time_line-select">Choose a timeline:</label>
+ <label>Choose a timeline:</label>
 
- <select name="guest[][time_line]" placeholder=" select time_line">
+ <select name="time_line" placeholder=" select time_line">
      <option value="">--Please choose an option--</option>
      <option value="now">Now</option>
      <option value="3 months">3 Months</option>
@@ -67,6 +67,6 @@
 
 
  <li>
- <li class="button">
- <button type="submit">Sumbit</button>
+<input type="submit" value="create new guest!" />
 </li>
+</form>

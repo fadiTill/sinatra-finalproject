@@ -1,18 +1,26 @@
 
 class Guest < ActiveRecord::Base
 
-    validates :name, :phone_number, :email, presence: true
+    # t.string   "name"
+    # t.integer  "phone_number"
+    # t.string   "adress"
+    # t.string   "email"
+    # t.string   "time_line"
+    # t.text     "note"
+    # t.datetime "created_at"
+    # t.datetime "updated_at"
+
+    validates :name, presence: true
+    validates :phone_number, presence: true
+    validates :adress, presence: true
+    validates :email, presence: true
+    validates :time_line, presence: true
+    validates :note, presence: true
+    validates :created_at, presence: true
+    validates :updated_at, presence: true
 end
 
 
 
 
 
-#     validates :phone_number, length: {minimun:10}
-#     validates :email, presence: true, if: :email_validate?
-#     def email_validate?
-#           string = email.input
-#          string.include? ("@")
-#     end
-# end
-  
