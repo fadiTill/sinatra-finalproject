@@ -38,10 +38,10 @@ end
     
 
 
-     patch "guests/:id" do
+     patch "/guests/:id" do
         @guest = Guest.find(params[:id])
          @guest_params = update_whiltelist(params)
-        @guest.update(@movie_params)
+        @guest.update(@guest_params)
          redirect "guests/#{@guest.id}"
  end
     
