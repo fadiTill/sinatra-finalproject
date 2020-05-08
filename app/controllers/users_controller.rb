@@ -18,8 +18,8 @@ end
     @user = User.new(params)
     #do other stuff then save
     if @user.save && params[:password].length > 6
-        session[:user_id] = @user.id
-        redirect "/guests"
+     session[:user_id] = @user.id
+    redirect "/guests"
     else
         erb :"users/new"
   end
@@ -27,7 +27,7 @@ end
 
 
 delete "/logout" do 
-    if session.destroy
+    if session.clear
         redirect "/"
     else
         redirect "/guests"
