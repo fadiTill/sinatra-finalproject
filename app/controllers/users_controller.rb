@@ -5,7 +5,6 @@ class UsersController < ApplicationController
     get "/users/:id" do
         @user = User.find(params[:id])
         erb :"users/show"
-
 end
 
 get "/signup" do
@@ -15,9 +14,10 @@ end
 
 
 
-post "/signup" do
+   post "/signup" do
     @user = User.new(params)
-    if @user.save && params[:password].length ≥ 6
+    #do other stuff then save
+    if @user.save && params[:password].length > 6
         session[:user_id] = @user.id
         redirect "/guests"
     else
