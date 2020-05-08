@@ -15,13 +15,13 @@ end
 
 
 
-post "/users/signup" do
-    user =User.new(paramas)
-    if user.save && params[:password].lenght > 6
+post "/signup" do
+    @user = User.new(params)
+    if @user.save && params[:password].length ≥ 6
         session[:user_id] = @user.id
- redirect "/guests"
+        redirect "/guests"
     else
-        erb :"guests/new"
+        erb :"users/new"
   end
 end
 
