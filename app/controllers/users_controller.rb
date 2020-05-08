@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
 
 
-    def "/users/:id" do
+    get "/users/:id" do
 
 end
 
