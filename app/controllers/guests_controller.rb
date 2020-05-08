@@ -12,45 +12,56 @@ class GuestsController < ApplicationController
      end
 
  post "/guests" do
-    @guest = Guest.new(params)
-    if @guest.save
+        @guest = Guest.new(params)
+    if  @guest.save
         redirect "guests/#{@guest.id}"
     else 
-
         erb :"guests/new"
-end
-end
+    end
+  end
 
    
  
- get "/guests/:id" do
-     @guest = Guest.find(params[:id])
+   get "/guests/:id" do
+    #    @guest = Guest.find(params[:id])
+    find_guest(params[:id])
         erb :"guests/show"
     end
 
 
 
     get "/guests/:id/edit" do
- @guest = Guest.find(params[:id])
-     erb :"guests/edit"
-     end
+        # @guest = Guest.find(params[:id])
+        find_guest(params[:id])
+        erb :"guests/edit"
+   end
 
     
 
 
-     patch "/guests/:id" do
-        @guest = Guest.find(params[:id])
-         @guest_params = update_whiltelist(params)
+     patch "/guests/:id/delete" do
+        # @guest = Guest.find(params[:id])
+        find_guest(params[:id])
+        @guest_params = update_whiltelist(params)
         @guest.update(@guest_params)
-         redirect "guests/#{@guest.id}"
- end
+        redirect "guests/#{@guest.id}"
+     end
     
 
 
 
 
-# delete "guests/:id/delete"do
-# end
+delete "/guests/:id/" do
+# @guest = Guest.find(params[:id])
+find_guest(params[:id])
+@guest.destroy
+if @guest.errors
+    erb :"guests/index"
+else
+    erb :"guests/#{@guest.id}"
+ end
+end
+
 
 
 # validates :name, presence: true
@@ -63,18 +74,23 @@ end
 #     validates :updated_at, presence: true
 private
 
-def update_whiltelist(params)
-    {
-        name: params[:name],
-        phone_number: params[:phone_number],
-        adress: params[:adress],
-        email: params[:email],
-        time_line: params[:time_line],
-        note: params[:note],
-        created_at: params[:created_at],
-        updated_at: params[:updated_at]
-    }
-end
-end
+      def update_whiltelist(params)
+           {
+                name: params[:name],
+                phone_number: params[:phone_number],
+                adress: params[:adress],
+                email: params[:email],
+                time_line: params[:time_line],
+                note: params[:note],
+                created_at: params[:created_at],
+                updated_at: params[:updated_at]
+            }
+      end
+
+
+      def find_guest(uniq_id)
+        @guest = Guest.find(uniq_id )
+     end
+    end
 
 

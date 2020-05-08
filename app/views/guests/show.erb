@@ -2,4 +2,12 @@
 
 <p>single guest goes here</p>
 
-<%= @guest.name%>
+<%= @guest.name %>
+
+<a href="/guest/<%= @guest.id %>/delete" >Delete guest <a/>
+
+<form action="/guests/<%= @guest.id %>/delete" method="POST">
+<input id="hidden"  type="hidden" name="_method" value="DELETE" />
+<input id="submit" value= "Delete"/>
+<ul>
+</form>
