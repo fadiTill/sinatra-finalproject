@@ -12,28 +12,20 @@ class ApplicationController < Sinatra::Base
   end
 
   helpers do 
-     def looged_in?
+     def logged_in?
       !!session[:user_id]
   end
 
 
-  def current_user
-    @user||== User.find(session[:user_id]) if session [:user_id]
+
+    def current_user
+      @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
+    end
   end
-  
-
-  
-  # post "/" do 
-  #   @guest = Guest.new(name:"name 1")
-  #   if @guest.save
-  #     erb: new_welcome
-    #else
-      #do something upon failure 
-
- 
-  # get '/images/home-realestate-106399.jpg' do
-  #   "/images/home-realestate-106399.jpg"
-  # end
 end
+
+
+  
+  
 
 

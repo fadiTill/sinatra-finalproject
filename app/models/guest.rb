@@ -18,6 +18,8 @@ class Guest < ActiveRecord::Base
     validates :note, presence: true
     validates :created_at, presence: true
     validates :updated_at, presence: true
+
+    belongs_to :user
 end
 
 
