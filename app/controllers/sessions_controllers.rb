@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
     get "/login" do 
  if logged_in?
-  erb :"/users/login"
+  erb :"users/login"
  end
 end
 
@@ -15,7 +15,7 @@ end
 
     else 
         
-        erb :"/users/login"
+        erb :"users/login"
     end
   end
 end
