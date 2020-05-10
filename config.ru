@@ -10,7 +10,8 @@ use Rack::MethodOverride
 
 
 
-use GuestsController
+
 use UsersController
 use SessionsController
+use GuestsController
 run ApplicationController
