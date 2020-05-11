@@ -17,7 +17,7 @@ class GuestsController < ApplicationController
 
  post "/guests" do
         @guest = Guest.new(params)
-        # @guest = current_user.guests.build(params)
+        #  @guest = current_user.guests.build(params)
         @user = current_user
 
     if  @guest.save
@@ -63,9 +63,9 @@ delete "/guests/:id" do
  find_guest(params[:id])
   @guest.delete
 if @guest.errors
-    redirect to "guests/index"
+    redirect to "guests/new"
 else
-    erb :"guests/edit"
+    erb :"/guests/#{@guest.id}"
  end
 end
 

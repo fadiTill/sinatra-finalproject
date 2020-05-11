@@ -1,5 +1,5 @@
 <h1> edit guest </h1>
-<%= @guest.name %>
+<%= @guest.id %>
 
 
 <ul>
@@ -9,33 +9,33 @@
 
  <li>
    <label>Name:</label>
-   <input type="string"  name="name" placeholder="<%= @guest.name %>" />
+   <input type="string"  name="name" placeholder=" enter name" />
  </li>
 
  
 
  <li>
    <label>Phone number:</label>
-   <input type="string "  name="phone_number" placeholder=" <%= @guest.phone_number %>" />
+   <input type="string "  name="phone_number" placeholder="enter phone number" />
  </li>
 
 
  <li>
  <label>Adress:</label>
-   <input type="string"  name="adress" placeholder="<%= @guest.adress %> " />
+   <input type="string"  name="adress" placeholder=" enter adress"  />
  </li>
 
 
 
  <li>
    <label>E-mail:</label>
-   <input type="string"  name="email"placeholder="<%= @guest.email %>  " />
+   <input type="string"  name="email" placeholder="enter email" />
  </li>
 
 
  <li>
  <label>Note:</label>
-   <input type="text"  name="note"placeholder="<%= @guest.note %>  " />
+   <input type="text"  name="note" placeholder="note " />
  </li>
 
 
@@ -67,7 +67,17 @@
  </li>
 
 
+
+ <form action='/guests/<%= @guest.id %>' method="post">
+ <input id="hidden" type="hidden" name="_method" value="update">
+
+
  <li>
- <input type="submit" value="Update">
-</li>
-</form>
+ <input type='submit' value="update" />
+ </li>
+ 
+</form> 
+
+
+
+
