@@ -41,11 +41,17 @@
 <li>
 <label>Updated_at:</label> <%= @guest.updated_at %>
 </li>
+</form>
 
 
+<form action='/guests/<%= @guest.id %>' method="patch">
+    <input id="hidden" type="hidden" name="_method" value="DELETE">
 
 
-<a href="/guests/<%=@guest.id %>/delete" >Delete guest <a/>
-
+    <li>
+    <input type='submit' value="delete guest" />
+    </li>
+    
+</form> 
 
 
