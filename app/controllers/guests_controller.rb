@@ -45,14 +45,27 @@ class GuestsController < ApplicationController
 
     
 
-
-     patch "/guests/:id/" do    #delete
-        #  @guest = Guest.find(params[:id])
-         find_guest(params[:id])
+   patch "/guests/:id/" do
+        @guest = Guest.find(params[:id])
+        find_guest(params[:id])
         @guest_params = update_whiltelist(params)
         @guest.update(@guest_params)
-         redirect "/guests/#{@guest.id}"
+        if @guest.errors
+        redirect "/guests/#{@guest.id}"
+        else
+        redirect to "guests/new"   
      end
+    end
+
+
+
+    #  patch "/guests/:id/" do    #delete
+    #     #  @guest = Guest.find(params[:id])
+    #      find_guest(params[:id])
+    #     @guest_params = update_whiltelist(params)
+    #     @guest.update(@guest_params)
+    #      redirect "/guests/#{@guest.id}"
+    #  end
     
 
 
