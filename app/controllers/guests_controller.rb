@@ -61,11 +61,11 @@ class GuestsController < ApplicationController
 delete "/guests/:id" do
 #  @guest = Guest.find(params[:id])
  find_guest(params[:id])
-@guest.delete
+  @guest.delete
 if @guest.errors
     redirect to "guests/index"
 else
-    erb :"guests/new"
+    erb :"guests/edit"
  end
 end
 
