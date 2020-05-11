@@ -2,18 +2,28 @@
 
 <p>single guest goes here</p>
 
+
 <li>
-<label>Name:</label><%= @guest.name %>
+<label>Name:</label> <%= @guest.id %>
 </li>
+
+
 <li>
-<label>Email:</label><%= @guest.email %>
+<label>Name:</label> <%= @guest.name %>
 </li>
+
 <li>
-<label>Phone_number:</label><%= @guest.phone_number %>
+<label>Email:</label> <%= @guest.email %>
 </li>
+
 <li>
-<label>Timeline:</label><%= @guest.timeline %>
+<label>Phone:</label> <%= @guest.phone_number %>
 </li>
+
+<li>
+<label>Timeline:</label> <%= @guest.time_line %>
+</li>
+
 
 
 <a href="/guest/<%=@guest.id %>/delete" >Delete guest <a/>
