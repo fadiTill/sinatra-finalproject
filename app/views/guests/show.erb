@@ -1,11 +1,13 @@
 <h1>Show guests</h1>
 
+
 <p>single guest goes here</p>
 
-
+<form action="/guests/<%= @guest.id %>" method="POST">
 <li>
 <label>Name:</label> <%= @guest.id %>
 </li>
+
 
 
 <li>
@@ -13,20 +15,37 @@
 </li>
 
 <li>
+<label>Phone:</label> <%= @guest.phone_number %>
+</li>
+
+
+<li>
 <label>Email:</label> <%= @guest.email %>
 </li>
 
-<li>
-<label>Phone:</label> <%= @guest.phone_number %>
-</li>
+
 
 <li>
 <label>Timeline:</label> <%= @guest.time_line %>
 </li>
 
+<li>
+<label>Note:</label> <%= @guest.note %>
+</li>
+
+<li>
+<label>Created_at:</label> <%= @guest.created_at %>
+</li>
 
 
-<a href="/guest/<%=@guest.id %>/delete" >Delete guest <a/>
+<li>
+<label>Updated_at:</label> <%= @guest.updated_at %>
+</li>
+
+
+
+
+<a href="/guests/<%=@guest.id %>/delete" >Delete guest <a/>
 
 
 

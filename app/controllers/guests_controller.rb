@@ -17,7 +17,7 @@ class GuestsController < ApplicationController
 
  post "/guests" do
         @guest = Guest.new(params)
-        #@guest = current_user.guests.build(params)
+        # @guest = current_user.guests.build(params)
         @user = current_user
 
     if  @guest.save
@@ -30,25 +30,25 @@ class GuestsController < ApplicationController
    
  
    get "/guests/:id" do
-        @guest = Guest.find(params[:id])
-    # find_guest(params[:id])
+        # @guest = Guest.find(params[:id])
+     find_guest(params[:id])
         erb :"guests/show"
     end
 
 
 
     get "/guests/:id/edit" do
-         @guest = Guest.find(params[:id])
-        # find_guest(params[:id])
+        #  @guest = Guest.find(params[:id])
+         find_guest(params[:id])
         erb :"guests/edit"
    end
 
     
 
 
-     patch "/guests/:id/delete" do
-         @guest = Guest.find(params[:id])
-        # find_guest(params[:id])
+     patch "/guests/:id/" do    #delete
+        #  @guest = Guest.find(params[:id])
+         find_guest(params[:id])
         @guest_params = update_whiltelist(params)
         @guest.update(@guest_params)
          redirect "/guests/#{@guest.id}"
@@ -59,11 +59,11 @@ class GuestsController < ApplicationController
 
 
 delete "/guests/:id/" do
- @guest = Guest.find(params[:id])
-# find_guest(params[:id])
-@guest.destroy
+#  @guest = Guest.find(params[:id])
+ find_guest(params[:id])
+@guest.delete
 if @guest.errors
-    erb :"guests/index"
+    redirect to "guests/index"
 else
     erb :"guests/#{@guest.id}"
  end
@@ -95,9 +95,9 @@ private
       end
 
 
-    #   def find_guest(uniq_id)
-    #     @guest = Guest.find(uniq_id )
-    #  end
+      def find_guest(uniq_id)
+        @guest = Guest.find(uniq_id )
+     end
     end
 
 
