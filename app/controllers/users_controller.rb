@@ -29,11 +29,11 @@ class UsersController < ApplicationController
                   password_digest: params[:password_digest]
                   
                )
-             redirect "/users/#{@users.id}"
+            #  redirect "/users/#{@users.id}"
             # if @user.save && params[:password].length > 6
             #     session[:user_id] = @user.id
             #     redirect "/login"
-            # #   redirect "/guests/new"  
+               redirect "/guests/new"  
             # else
             #     erb :"users/new"
             # end
@@ -54,12 +54,12 @@ class UsersController < ApplicationController
 
             
             get '/login' do 
-                @error_message = params[:error]
-                if !session[:user_id]
+                # @error_message = params[:error]
+                # if !session[:user_id]
                   erb :'users/login'
-                else
-                  redirect '/guests/new'
-                end
+                # else
+                #   redirect '/guest/new'
+                # end
               end
             
               post '/login' do
