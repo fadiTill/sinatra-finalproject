@@ -35,6 +35,10 @@ class UsersController < ApplicationController
             end 
             # end
 
+
+
+
+            
             get '/login' do 
                 @error_message = params[:error]
                 if !session[:user_id]
