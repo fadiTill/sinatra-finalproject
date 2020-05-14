@@ -1,5 +1,48 @@
 <h1>guests index</h1>
 
-<p>index of guests</p>
 
-<%= @guest.name %>
+
+ <% @guests.each  do | guest|%>
+
+    guest number: <%= guest.id %>
+
+ <li>
+<label>Name:</label> <%= guest.name %>
+</li>
+
+<li>
+<label>Phone:</label> <%= guest.phone_number %>
+</li>
+
+<li>
+<label>Adress:</label> <%= guest.adress %>
+</li>
+
+<li>
+<label>Email:</label> <%= guest.email %>
+</li>
+
+
+
+<li>
+<label>Timeline:</label> <%= guest.time_line %>
+</li>
+
+<li>
+<label>Note:</label> <%= guest.note %>
+</li>
+
+<li>
+<label>Created_at:</label> <%= guest.created_at %>
+</li>
+
+
+<li>
+<label>Updated_at:</label> <%= guest.updated_at %>
+</li>
+
+<% end %>
+
+
+
+

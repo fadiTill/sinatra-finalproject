@@ -2,14 +2,7 @@
 
 class GuestsController < ApplicationController
 
-    get "/guests" do
-         if logged_in?
-        @guests = Guest.all
-         @guests = current_user.guests
-        erb :"guests/index"
-    end
- end
-
+   
 
     get "/guests/new" do
         erb :"guests/new"
@@ -36,6 +29,14 @@ class GuestsController < ApplicationController
     end
 
 
+    get "/guests" do
+        #  if logged_in?
+       @guests = Guest.all
+        #  @guests = current_user.guest
+       erb :"guests/index"
+   end
+#  end
+
 
     get "/guests/:id/edit" do
         #  @guest = Guest.find(params[:id])
@@ -45,18 +46,22 @@ class GuestsController < ApplicationController
 
     
 
-   patch "/guests/:id/" do
-        @guest = Guest.find(params[:id])
-        find_guest(params[:id])
-        @guest_params = update_whiltelist(params)
-        @guest.update(@guest_params)
-        if @guest.errors
-        redirect "/guests/#{@guest.id}"
-        else
-        redirect to "guests/new"   
-     end
-    end
+   post "/guests/:id/" do
+         @guest = Guest.find(params[:id])
+         @guest.update(
+            name: params[:name],
+            phone_number: params[:phone_number],
+            adress: params[:adress],
+            email: params[:email],
+            time_line: params[:time_line],
+            note: params[:note],
+            created_at: params[:created_at],
+            updated_at: params[:updated_at]   
+         )
+        
+            redirect  "/guests/#{@guest.id}"
 
+   end
 
 
     #  patch "/guests/:id/" do    #delete
