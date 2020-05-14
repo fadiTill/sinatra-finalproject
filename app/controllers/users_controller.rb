@@ -1,39 +1,53 @@
 class UsersController < ApplicationController
 
 
-            get "/users/:id" do
-            # if logged_in?
-                @user = User.find(params[:id])
-                erb :"users/show"
-            end
-            # end
-        
 
+
+  # t.string  :name
+  # t.string  :email
+  # t.string  :password_digest
+
+          
+        
+           
+           
+           
+            get '/signup' do
+              # if logged_in?
+                  # redirect "/guests/index"
+              # else
+              erb :"users/new"
+          end 
+          # end
             
             
             
             post "/signup" do
-                @user = User.new(params)
-      
-            if @user.save && params[:password].length > 6
-                session[:user_id] = @user.id
-                redirect "/login"
-            #   redirect "/guests/new"  
-            else
-                erb :"users/new"
-            end
+                @user = User.create(
+                  name: params[:name],
+                  email: params[:email],
+                  password_digest: params[:password_digest]
+                  
+               )
+             redirect "/users/#{@users.id}"
+            # if @user.save && params[:password].length > 6
+            #     session[:user_id] = @user.id
+            #     redirect "/login"
+            # #   redirect "/guests/new"  
+            # else
+            #     erb :"users/new"
+            # end
             end
 
+            get '/users/:id' do
+              # if logged_in?
+                   @user = User.find(params[:id])
+                  erb :"/users/show"
+              end
+              # end
             
             
-            
-            get '/signup' do
-                # if logged_in?
-                    # redirect "/guests/index"
-                # else
-                erb :"users/new"
-            end 
-            # end
+           
 
 
 

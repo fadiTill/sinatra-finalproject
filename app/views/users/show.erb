@@ -1,17 +1,15 @@
-<h1>Show users</h1>
 
-<p>single user goes here</p>
 
-<%=@guest.email %>
+   <h1> Welcome, <%= @user.name %> </h1>
 
 
 
-<#a href="/guest/<%=@guest.id %>/delete" >Delete guest <a/>
 
-<form action="/users/<%= @user.id %>/delete" method="POST">
-<input id="hidden"  type="hidden" name="_method" value="DELETE" />
-<input id="submit" value= "Delete"/>
-<ul>
-</form>
+
+
+
+
+
+
 
 
