@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200508164530) do
+ActiveRecord::Schema.define(version: 20200514033241) do
 
   create_table "guests", force: :cascade do |t|
     t.string   "name"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20200508164530) do
     t.text     "note"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "users", force: :cascade do |t|

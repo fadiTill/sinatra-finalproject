@@ -11,7 +11,7 @@ class GuestsController < ApplicationController
  post "/guests" do
         @guest = Guest.new(params)
         #  @guest = current_user.guests.build(params)
-        @user = current_user
+        # @user = current_user
 
     if  @guest.save
         redirect "/guests/#{@guest.id}"
@@ -30,12 +30,12 @@ class GuestsController < ApplicationController
 
 
     get "/guests" do
-        #  if logged_in?
+    # if logged_in?
        @guests = Guest.all
-        #  @guests = current_user.guest
+        # @guests = current_user.guest
        erb :"guests/index"
    end
-#  end
+#   end
 
 
     get "/guests/:id/edit" do
