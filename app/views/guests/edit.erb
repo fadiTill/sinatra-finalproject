@@ -4,50 +4,50 @@
 
 <ul>
 
-<form action="/guests/<%= @guest.id %>" method="PATCH">
-  <input id="hidden" type="hidden" name="_method" value="PATCH">
+<form action="/guests/<%= @guest.id %>" method="POST">
+  <input id="hidden" type="hidden" name="_method" value="patch">
 
  <li>
    <label>Name:</label>
-   <input type="string"  name="name" placeholder=" enter name" />
+   <input type="string"  value ="<%= @guest.name %>" name="name"  />
  </li>
 
  
 
  <li>
    <label>Phone number:</label>
-   <input type="string "  name="phone_number" placeholder="enter phone number" />
+   <input type="string " value ="<%= @guest.phone_number %>" name="phone_number" />
  </li>
 
 
  <li>
  <label>Adress:</label>
-   <input type="string"  name="adress" placeholder=" enter adress"  />
+   <input type="string" value ="<%= @guest.adress %>" name="adress"   />
  </li>
 
 
 
  <li>
    <label>E-mail:</label>
-   <input type="string"  name="email" placeholder="enter email" />
+   <input type="string" value ="<%= @guest.email %>" name="email"  />
  </li>
 
 
  <li>
  <label>Note:</label>
-   <input type="text"  name="note" placeholder="note " />
+   <input type="text" value ="<%= @guest.note %>" name="note" />
  </li>
 
 
  <li>
    <label>Date created:</label>
-   <input type="date" name="created_at"/>
+   <input type="date" value ="<%= @guest.created_at %>"name="created_at"/>
  </li>
 
 
  <li>
    <label>Date updated:</label>
-   <input type="date" name= "updated_at" />
+   <input type="date"value ="<%= @guest.updated_at %>" name= "updated_at" />
  </li>
 
 
@@ -55,7 +55,7 @@
 
  <label>Choose a timeline:</label>
 
- <select name="time_line" placeholder=" select time_line">
+ <select name="time_line" value ="<%= @guest.time_line %>" placeholder=" select time_line">
      <option value="">--Please choose an option--</option>
      <option value="now">Now</option>
      <option value="3 months">3 Months</option>
