@@ -1,21 +1,21 @@
-class SessionsController < ApplicationController
+# class SessionsController < ApplicationController
 
-    get "/login" do 
- if logged_in?
-  erb :"users/login"
- end
-end
+#     get "/login" do 
+#  if logged_in?
+#   erb :"users/login"
+#  end
+# end
 
 
- post "/login" do
-    @user = user.find_by(email: params[:email])
-    if @user && @user.authenticate(params[:password])
+#  post "/login" do
+#     @user = user.find_by(email: params[:email])
+#     if @user && @user.authenticate(params[:password])
         
-        redirect "/guests"
+#         redirect "/guests"
 
-    else 
+#     else 
         
-        erb :"users/login"
-    end
-  end
-end
+#         erb :"users/login"
+#     end
+#   end
+# end

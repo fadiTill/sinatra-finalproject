@@ -12,6 +12,6 @@ use Rack::MethodOverride
 
 
 use UsersController
-use SessionsController
+# use SessionsController
 use GuestsController
 run ApplicationController

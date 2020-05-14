@@ -2,11 +2,11 @@ class UsersController < ApplicationController
 
 
             get "/users/:id" do
-            if logged_in?
+            # if logged_in?
                 @user = User.find(params[:id])
                 erb :"users/show"
             end
-            end
+            # end
         
 
             
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
             
             post "/signup" do
                 @user = User.new(params)
-                #do other stuff then save
+      
             if @user.save && params[:password].length > 6
                 session[:user_id] = @user.id
                 redirect "/login"
@@ -27,13 +27,13 @@ class UsersController < ApplicationController
             
             
             
-            get "/signup" do
-                if logged_in?
-                    redirect "/guests/index"
-                else
+            get '/signup' do
+                # if logged_in?
+                    # redirect "/guests/index"
+                # else
                 erb :"users/new"
             end 
-            end
+            # end
 
             get '/login' do 
                 @error_message = params[:error]
