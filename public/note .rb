@@ -7,3 +7,19 @@
 # <input id="submit" value= "Delete"/>
 # <ul>
 # </form>
+
+
+
+
+edit
+<form action='/guests/<%= @guest.id %>'  method='PATCH'>
+ <input id="hidden" type="hidden" name="_method" value="update">
+
+
+ <li>
+ <input type='submit' value="update" />
+ </li>
+ 
+</form> 
+
+

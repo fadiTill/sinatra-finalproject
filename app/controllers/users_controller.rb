@@ -22,20 +22,21 @@ class UsersController < ApplicationController
             
             
             
-            post "/signup" do
+            post '/signup' do
                 @user = User.create(
                   name: params[:name],
                   email: params[:email],
                   password_digest: params[:password_digest]
                   
                )
-            #  redirect "/users/#{@users.id}"
+              #  redirect "/users/#{@user.id}"
             # if @user.save && params[:password].length > 6
             #     session[:user_id] = @user.id
             #     redirect "/login"
-               redirect "/guests/new"  
+                 redirect "/guests/new"  
+                
             # else
-            #     erb :"users/new"
+          #     erb :"users/new"
             # end
             end
 
@@ -63,13 +64,14 @@ class UsersController < ApplicationController
               end
             
               post '/login' do
-                user = User.find_by(:name => params[:name])
+                
+                 user = User.find_by(:name => params[:name])
                 if user && user.authenticate(params[:password])
-                  session[:user_id] = user.id
+                  # session[:user_id] = user.id
                   redirect "/guests/new"
-                else
+                 else
                   redirect to '/signup'
-                end
+                 end
               end
 
   

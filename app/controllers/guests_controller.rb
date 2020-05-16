@@ -10,8 +10,9 @@ class GuestsController < ApplicationController
 
  post "/guests" do
         @guest = Guest.new(params)
+        #  @user = current_user
         #  @guest = current_user.guests.build(params)
-        # @user = current_user
+        
 
     if  @guest.save
         redirect "/guests/#{@guest.id}"
@@ -46,31 +47,14 @@ class GuestsController < ApplicationController
 
     
 
-   post "/guests/:id/" do
-         @guest = Guest.find(params[:id])
-         @guest.update(
-            name: params[:name],
-            phone_number: params[:phone_number],
-            adress: params[:adress],
-            email: params[:email],
-            time_line: params[:time_line],
-            note: params[:note],
-            created_at: params[:created_at],
-            updated_at: params[:updated_at]   
-         )
-        
-            redirect  "/guests/#{@guest.id}"
 
-   end
-
-
-    #  patch "/guests/:id/" do    #delete
-    #     #  @guest = Guest.find(params[:id])
-    #      find_guest(params[:id])
-    #     @guest_params = update_whiltelist(params)
-    #     @guest.update(@guest_params)
-    #      redirect "/guests/#{@guest.id}"
-    #  end
+     patch  "/guests/:id/" do    #delete
+        #  @guest = Guest.find(params[:id])
+         find_guest(params[:id])
+        @guest_params = update_whiltelist(params)
+        @guest.update(@guest_params)
+         redirect "/guests/#{@guest.id}"
+     end
     
 
 
