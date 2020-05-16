@@ -23,20 +23,19 @@ class GuestsController < ApplicationController
 
    
  
-   get "/guests/:id" do
-        # @guest = Guest.find(params[:id])
+   get "/guests/:id" do    
      find_guest(params[:id])
         erb :"guests/show"
     end
 
 
     get "/guests" do
-    # if logged_in?
+    #  if logged_in?
        @guests = Guest.all
         # @guests = current_user.guest
        erb :"guests/index"
    end
-#   end
+#    end
 
 
     get "/guests/:id/edit" do
