@@ -30,12 +30,13 @@ class UsersController < ApplicationController
                   
                )
               #  redirect "/users/#{@user.id}"
-            # if @user.save && params[:password].length > 6
-            #     session[:user_id] = @user.id
+             #if @user.save && params[:password].length > 6
+                session[:user_id] = @user.id
             #     redirect "/login"
-                 redirect "/guests/new"  
+            # redirect "/users/#{@user.id}"
+                  redirect "/guests/new"  
                 
-            # else
+            #  else
           #     erb :"users/new"
             # end
             end
@@ -67,7 +68,7 @@ class UsersController < ApplicationController
                 
                  user = User.find_by(:name => params[:name])
                 if user && user.authenticate(params[:password])
-                  # session[:user_id] = user.id
+                   session[:user_id] = user.id
                   redirect "/guests/new"
                  else
                   redirect to '/signup'

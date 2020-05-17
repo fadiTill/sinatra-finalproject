@@ -39,7 +39,6 @@ class GuestsController < ApplicationController
 
 
     get "/guests/:id/edit" do
-        #  @guest = Guest.find(params[:id])
          find_guest(params[:id])
         erb :"guests/edit"
    end
@@ -47,8 +46,7 @@ class GuestsController < ApplicationController
     
 
 
-     patch  "/guests/:id/" do    #delete
-        #  @guest = Guest.find(params[:id])
+     patch  "/guests/:id/" do    
          find_guest(params[:id])
         @guest_params = update_whiltelist(params)
         @guest.update(@guest_params)
@@ -60,7 +58,6 @@ class GuestsController < ApplicationController
 
 
 delete "/guests/:id" do
-#  @guest = Guest.find(params[:id])
  find_guest(params[:id])
   @guest.delete
 if @guest.errors
