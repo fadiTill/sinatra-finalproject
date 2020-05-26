@@ -9,11 +9,10 @@ class GuestsController < ApplicationController
      end
 
  post "/guests" do
-        @guest = Guest.new(params)
+        # @guest = Guest.new(params)
         #  @user = current_user
-        #  @guest = current_user.guests.build(params)
-        
-
+         @guest = current_user.guests.build(params)
+        # binding.pry
     if  @guest.save
         redirect "/guests/#{@guest.id}"
     else 
@@ -46,10 +45,11 @@ class GuestsController < ApplicationController
     
 
 
-     patch  "/guests/:id/" do    
+     patch "/guests/:id" do    
          find_guest(params[:id])
         @guest_params = update_whiltelist(params)
         @guest.update(@guest_params)
+        # binding.pry
          redirect "/guests/#{@guest.id}"
      end
     
