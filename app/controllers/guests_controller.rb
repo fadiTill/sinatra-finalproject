@@ -32,7 +32,7 @@ class GuestsController < ApplicationController
     get "/guests" do
     #  if logged_in?
        @guests = Guest.all
-        # @guests = current_user.guest
+       @guests = current_user.guests
        erb :"guests/index"
    end
 #    end
