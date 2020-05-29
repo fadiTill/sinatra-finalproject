@@ -26,12 +26,14 @@ class UsersController < ApplicationController
                 @user = User.create(
                   name: params[:name],
                   email: params[:email],
-                  password_digest: params[:password_digest]
+                  password: params[:password]
                   
                )
+               
               #  redirect "/users/#{@user.id}"
              #if @user.save && params[:password].length > 6
                 session[:user_id] = @user.id
+                # binding.pry
             #     redirect "/login"
             # redirect "/users/#{@user.id}"
                   redirect "/guests/new"  

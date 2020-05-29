@@ -11,6 +11,7 @@ class GuestsController < ApplicationController
  post "/guests" do
         # @guest = Guest.new(params)
         #  @user = current_user
+        # binding.pry
          @guest = current_user.guests.build(params)
         # binding.pry
     if  @guest.save
