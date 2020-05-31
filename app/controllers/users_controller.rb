@@ -13,12 +13,9 @@ class UsersController < ApplicationController
            
            
             get '/signup' do
-              # if logged_in?
-                  # redirect "/guests/index"
-              # else
               erb :"users/new"
           end 
-          # end
+          
             
             
             
@@ -30,13 +27,12 @@ class UsersController < ApplicationController
                   
                )
                
-              #  redirect "/users/#{@user.id}"
              #if @user.save && params[:password].length > 6
                 session[:user_id] = @user.id
                 # binding.pry
             #     redirect "/login"
-            # redirect "/users/#{@user.id}"
-                  redirect "/guests/new"  
+            redirect "/users/#{@user.id}"
+                  # redirect "/guests/new"  
                 
             #  else
           #     erb :"users/new"
@@ -44,11 +40,13 @@ class UsersController < ApplicationController
             end
 
             get '/users/:id' do
-              # if logged_in?
+              if logged_in?
                    @user = User.find(params[:id])
                   erb :"/users/show"
+              else 
+                redirect "/"
               end
-              # end
+               end
             
             
            
@@ -87,17 +85,15 @@ class UsersController < ApplicationController
             end
 
 
-            delete "/logout" do 
+            get "/logout" do #delete
                 if logged_in?
                 session.clear
                 redirect "/"
                 else
                     redirect "/guests"
-                 end 
-                # else redirect "/guests"
-            end
+                 end
+               end
 
 
-            # delete "/users/deactivate" do 
-            # end
+           
             end

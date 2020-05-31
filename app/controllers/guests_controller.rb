@@ -5,8 +5,12 @@ class GuestsController < ApplicationController
    
 
     get "/guests/new" do
+        if logged_in?
         erb :"guests/new"
+        else
+        redirect "/"    
      end
+    end
 
  post "/guests" do
         # @guest = Guest.new(params)
@@ -23,19 +27,25 @@ class GuestsController < ApplicationController
 
    
  
-   get "/guests/:id" do    
+   get "/guests/:id" do  
+    if logged_in?  
      find_guest(params[:id])
         erb :"guests/show"
+    else
+        redirect "/"    
+     end
     end
 
 
     get "/guests" do
-    #  if logged_in?
+      if logged_in?
        @guests = Guest.all
        @guests = current_user.guests
        erb :"guests/index"
-   end
-#    end
+    else
+    redirect "/"    
+ end
+end
 
 
     get "/guests/:id/edit" do
