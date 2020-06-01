@@ -28,7 +28,7 @@ class GuestsController < ApplicationController
    
  
    get "/guests/:id" do  
-    if logged_in?  
+    if logged_in? 
      find_guest(params[:id])
         erb :"guests/show"
     else
@@ -39,8 +39,8 @@ class GuestsController < ApplicationController
 
     get "/guests" do
       if logged_in?
-       @guests = Guest.all
-       @guests = current_user.guests
+        @guests = current_user.guests|| @guests = Guest.all
+       
        erb :"guests/index"
     else
     redirect "/"    
@@ -49,20 +49,31 @@ end
 
 
     get "/guests/:id/edit" do
-         find_guest(params[:id])
+          find_guest(params[:id])
+        if current_user.id == @guest.user_id
+           
         erb :"guests/edit"
+        else 
+            redirect "/"      
    end
+end
 
     
 
 
      patch "/guests/:id" do    
          find_guest(params[:id])
+         if current_user.id == @guest.user_id
+           
         @guest_params = update_whiltelist(params)
         @guest.update(@guest_params)
         # binding.pry
          redirect "/guests/#{@guest.id}"
-     end
+     
+    else 
+        redirect "/"      
+end
+end
     
 
 
@@ -70,13 +81,16 @@ end
 
 delete "/guests/:id" do
  find_guest(params[:id])
+ if current_user.id == @guest.user_id
   @guest.delete
-if @guest.errors
+redirect "/" 
+elsif @guest.errors
     redirect to "guests/new"
 else
     erb :"/guests/#{@guest.id}"
  end
 end
+
 
 
 
