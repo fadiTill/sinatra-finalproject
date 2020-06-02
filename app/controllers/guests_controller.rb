@@ -43,7 +43,7 @@ class GuestsController < ApplicationController
        
        erb :"guests/index"
     else
-    redirect "/"    
+    redirect "guests/new"    
  end
 end
 
@@ -54,7 +54,7 @@ end
            
         erb :"guests/edit"
         else 
-            redirect "/"      
+            redirect "guests/new"      
    end
 end
 
@@ -71,7 +71,7 @@ end
          redirect "/guests/#{@guest.id}"
      
     else 
-        redirect "/"      
+        redirect "guests/new"      
 end
 end
     

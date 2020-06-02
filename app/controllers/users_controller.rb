@@ -20,24 +20,28 @@ class UsersController < ApplicationController
             
             
             post '/signup' do
+
+              # Homework  validator to protect against duplicate login credentials across different users,
+              #   usually username or email)
+              user = User.find_by(:email => params[:email])
+              if user && user.authenticate(params[:password])
+                 session[:user_id] = user.id
+                redirect "/guests/new"
+               else
+              # if user exict redirect to guest/new and can access guest already create
+               #else redirect to new user welcome page.
                 @user = User.create(
                   name: params[:name],
                   email: params[:email],
-                  password: params[:password]
-                  
-               )
-               
-             #if @user.save && params[:password].length > 6
+                  password: params[:password])
                 session[:user_id] = @user.id
-                # binding.pry
-            #     redirect "/login"
-            redirect "/users/#{@user.id}"
-                  # redirect "/guests/new"  
-                
-            #  else
-          #     erb :"users/new"
-            # end
-            end
+                redirect "/users/#{@user.id}"
+          end
+        end
+
+
+
+
 
             get '/users/:id' do
               if logged_in?
