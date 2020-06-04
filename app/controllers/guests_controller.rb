@@ -83,11 +83,11 @@ delete "/guests/:id" do
  find_guest(params[:id])
  if current_user.id == @guest.user_id
   @guest.delete
-redirect "/" 
+redirect "guests/new" 
 elsif @guest.errors
-    redirect to "guests/new"
-else
-    erb :"/guests/#{@guest.id}"
+    redirect to "/"
+# else
+#     erb :"/guests/#{@guest.id}"
  end
 end
 
