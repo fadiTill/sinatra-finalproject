@@ -5,7 +5,7 @@ DEMO:https://youtu.be/CK0zbEQ8Jr4
 
 sinatra-finalproject
 
-Welcome to your new MVC ! In this directory,  To experiment with that code, run shotgun for an interactive prompt.
+Welcome to your new MVC ! In this directory,  To experiment with that code, for an interactive prompt.
 
 Installation
 
@@ -15,6 +15,8 @@ sinatra-finalproject
 And then execute:
 
 $ bundle install
+
+run: shotgun 
 
 
 

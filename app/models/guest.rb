@@ -3,7 +3,7 @@ class Guest < ActiveRecord::Base
 
     # t.string   "name"
     # t.integer  "phone_number"
-    # t.string   "adress"
+    # t.string   "address"
     # t.string   "email"
     # t.string   "time_line"
     # t.text     "note"
@@ -12,7 +12,7 @@ class Guest < ActiveRecord::Base
 
     validates :name, presence: true
     validates :phone_number, presence: true
-    validates :adress, presence: true
+    validates :address, presence: true
     validates :email, presence: true
     validates :time_line, presence: true
     validates :note, presence: true

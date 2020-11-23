@@ -1,10 +1,55 @@
 
+<style>
+/* Set a style for all buttons */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
 
+/* Add a blue background color to the top navigation */
+.topnav {
+  background-color: #00008B;
+  overflow: hidden;
+}
 
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
 
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
 
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #000000;
+  color: white;
+}
+ 
 
-<h1> create a  guest </h1>
+ 
+</style>
+
+<div class="topnav">
+ <a class="active" href="#home">Home</a>
+ <a href="/guests" > Your  Guests <a/>
+ <a href="/logout" > logout <a/>
+</div>
+<br><br>
+
 
 <form action="/guests" method="POST">
 <ul>
@@ -17,14 +62,14 @@
  
 
  <li>
-   <label>Phone number:</label>
+   <label>Phone:</label>
    <input type="integer"  name="phone_number" placeholder="enter phone number"/>
  </li>
 
 
  <li>
- <label>Adress:</label>
-   <input type="string"  name="adress" placeholder="enter adresse"/>
+ <label>Address:</label>
+   <input type="string"  name="address" placeholder="enter address"/>
  </li>
 
 
@@ -70,16 +115,11 @@
 
 
  <li>
-<input type="submit" value="create new guest!" />
+ <button type="submit" value="create new guest!">create guest </button>
 </li>
 </form>
 
 
-<li>
-<a href="/guests" > Your  Guests <a/>
-</li>
 
-<li>
- <a href="/logout" > logout <a/>
- </li>
 
+ 

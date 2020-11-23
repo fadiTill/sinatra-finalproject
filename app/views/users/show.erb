@@ -1,18 +1,56 @@
 
 
-   <h1> Welcome, <%= @user.name %> </h1>
+
+ <style>
+/* Add a blue background color to the top navigation */
+.topnav {
+  background-color: #00008B;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #000000;
+  color: white;
+}
+ 
 
 
-   <li>
+ body {
+   background-image: url('images/building-metal-house-architecture-101808.jpg');
+   background-repeat: no-repeat;
+   background-attachment: fixed; 
+   background-size: 100% 100%;
+ }
+ </style>
+
+
+ <h1> Welcome, <%= @user.name %> </h1>
+
+
+
+ 
+ <div class="topnav">
+ <a class="active" href="#home">Home</a>
  <a href="/guests/new" > Create new guest <a/>
- </li>
-
-
- <li>
  <a href="/logout" > logout <a/>
- </li>
-
-
+</div>
 
 
 
