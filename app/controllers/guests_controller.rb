@@ -97,7 +97,7 @@ end
 
 # validates :name, presence: true
 #     validates :phone_number, presence: true
-#     validates :adress, presence: true
+#     validates :address, presence: true
 #     validates :email, presence: true
 #     validates :time_line, presence: true
 #     validates :note, presence: true
@@ -109,7 +109,7 @@ private
            {
                 name: params[:name],
                 phone_number: params[:phone_number],
-                adress: params[:adress],
+                address: params[:address],
                 email: params[:email],
                 time_line: params[:time_line],
                 note: params[:note],

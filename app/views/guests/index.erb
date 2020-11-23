@@ -1,58 +1,108 @@
-<h1>guests index</h1>
+<style>
 
+
+* {
+   box-sizing: border-box;
+ }
+ 
+ body {
+   font-family: Arial, Helvetica, sans-serif;
+ }
+ 
+
+ /* Set a style for all buttons */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+a:link, a:visited {
+  text-align: center; 
+  text-decoration: none;
+  display: inline-block;
+}
+
+
+
+
+ /* Float four columns side by side */
+ .column {
+   float: left;
+   width: 25%;
+   padding: 0 10px;
+ }
+ 
+ /* Remove extra left and right margins, due to padding in columns */
+ .row {margin: 0 -5px;}
+ 
+ /* Clear floats after the columns */
+ .row:after {
+   content: "";
+   display: table;
+   clear: both;
+ }
+ 
+ /* Style the counter cards */
+ .card {
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+   padding: 16px;
+   text-align: center;
+   background-color: #f1f1f1;
+ }
+ 
+ /* Responsive columns - one column layout (vertical) on small screens */
+ @media screen and (max-width: 600px) {
+   .column {
+     width: 100%;
+     display: block;
+     margin-bottom: 20px;
+   }
+
+   
+ }
+
+</style>
 
 
  <% @guests.each  do | guest|%>
+<div class="row">
+<div class="column">
+<div class="card">
+ guest number: <%= guest.id %>
+<%= guest.name %>
+<br></br>
+<%= guest.phone_number %>
+<br></br>
+ <%= guest.address %>
+ <br></br>
+ <%= guest.email %>
+ <br></br>
+ <%= guest.time_line %>
+ <br></br>
+ <%= guest.note %>
+ <br></br>
+ <%= guest.user_id %>
+ <br></br>
+ <%= guest.created_at %>
+ <br></br>
+ <%= guest.updated_at %>
+ <br></br>
+ 
 
-    guest number: <%= guest.id %>
-
- <li>
-<label>Name:</label> <%= guest.name %>
-</li>
-
-<li>
-<label>Phone:</label> <%= guest.phone_number %>
-</li>
-
-<li>
-<label>Adress:</label> <%= guest.adress %>
-</li>
-
-<li>
-<label>Email:</label> <%= guest.email %>
-</li>
-
-
-
-<li>
-<label>Timeline:</label> <%= guest.time_line %>
-</li>
-
-<li>
-<label>Note:</label> <%= guest.note %>
-</li>
-
-<li>
-<label>Created_at:</label> <%= guest.created_at %>
-</li>
-
-
-<li>
-<label>Updated_at:</label> <%= guest.updated_at %>
-</li>
-
-<li>
-<label> user_id</label> <%= guest.user_id %>
-</li>
-
-<li>
+<button>
 <a href="guests/new" > Create new guests <a/>
-</li>
-
-<li>
- <a href="/logout" > logout <a/>
- </li>
-
+</button>
+<button>
+<a href="/logout" > logout <a/>
+</button>
+ 
+ </div>
+ </div>
 
 <% end %>
 
