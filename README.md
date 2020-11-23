@@ -1,6 +1,6 @@
 
 
-DEMO:https://youtu.be/CK0zbEQ8Jr4
+DEMo video: https://youtu.be/3twhZvJGfa0
 
 
 sinatra-finalproject
